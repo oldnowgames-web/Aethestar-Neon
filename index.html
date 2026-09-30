@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#06020f">
+  <title>Aethestar Neon</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Monoton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="s-menu">
+  <canvas id="game"></canvas>
+  <div id="safeProbe" aria-hidden="true"></div>
+
+  <!-- HUD -->
+  <div id="hud">
+    <div class="hud-inner">
+      <div class="hud-row">
+        <div class="stat"><span class="lbl">Pontos</span><span class="val" id="hudScore">0</span></div>
+        <div class="hud-right">
+          <div class="stat best"><span class="lbl">Recorde</span><span class="val" id="hudBest">0</span></div>
+          <button id="btnPause" class="icon-btn" aria-label="Pausar"><svg viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button>
+        </div>
+      </div>
+      <div id="chips">
+        <div class="chip c-cyan" id="chipShield"><span>Escudo</span><i></i></div>
+        <div class="chip c-purple" id="chipSlow"><span>Câmera lenta</span><i></i></div>
+        <div class="chip c-magenta on" id="chipDash"><span>Dash</span><i></i></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controles virtuais (Touch) -->
+  <div id="touch">
+    <div class="pad">
+      <button id="btnLeft" class="tbtn" aria-label="Esquerda"><svg viewBox="0 0 24 24"><path d="M15 5 7 12l8 7z"/></svg></button>
+      <button id="btnRight" class="tbtn" aria-label="Direita"><svg viewBox="0 0 24 24"><path d="M9 5l8 7-8 7z"/></svg></button>
+    </div>
+    <button id="btnDash" class="tbtn dash" aria-label="Dash"><i id="dashFill"></i><span>Dash</span></button>
+  </div>
+
+  <!-- Tela inicial -->
+  <section id="screenStart" class="screen">
+    <div class="panel">
+      <h1 class="title" aria-label="Aethestar Neon"><span>Aethestar</span><span>Neon</span></h1>
+      <p class="best-line">Recorde <b id="bestStart">0</b></p>
+      <div class="btn-row">
+        <button id="btnPlay" class="btn">Jogar</button>
+        <button id="btnFull" class="btn ghost">Tela cheia</button>
+      </div>
+      <ul class="howto">
+        <li class="only-desktop"><kbd>←</kbd><kbd>→</kbd> ou <kbd>A</kbd><kbd>D</kbd> movem a nave</li>
+        <li class="only-desktop"><kbd>Espaço</kbd> dash &nbsp; <kbd>P</kbd> pausa</li>
+        <li class="only-touch">Arraste na tela ou use os botões</li>
+        <li class="only-touch">Toque em Dash para uma investida</li>
+      </ul>
+      <ul class="legend">
+        <li class="c-cyan">Escudo</li>
+        <li class="c-purple">Câmera lenta</li>
+        <li class="c-amber">Bônus</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Game over -->
+  <section id="screenOver" class="screen">
+    <div class="panel">
+      <h2 class="over-title"><span>Game</span><span>Over</span></h2>
+      <div class="final"><span class="lbl">Pontos</span><span class="val" id="finalScore">0</span></div>
+      <p class="record" id="recordMsg" hidden>Novo recorde!</p>
+      <p class="best-line">Recorde <b id="bestOver">0</b></p>
+      <div class="btn-row">
+        <button id="btnRestart" class="btn">Jogar de novo</button>
+        <button id="btnMenuOver" class="btn ghost">Menu</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pausa -->
+  <section id="screenPause" class="screen">
+    <div class="panel">
+      <h2 class="pause-title">Pausado</h2>
+      <div class="btn-row">
+        <button id="btnResume" class="btn">Continuar</button>
+        <button id="btnMenuPause" class="btn ghost">Menu</button>
+      </div>
+    </div>
+  </section>
+
+  <noscript>Ative o JavaScript para jogar Aethestar Neon.</noscript>
+  <script src="script.js"></script>
+</body>
+</html>
