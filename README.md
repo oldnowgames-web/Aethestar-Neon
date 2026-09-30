@@ -1,2 +1,2 @@
-# Aethestar-Neon
+# Aethelstar-Neon
 jogo de nave neon
